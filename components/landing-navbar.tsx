@@ -106,7 +106,7 @@ export default function LandingNavbar() {
                             <div className="flex items-center justify-between" >
                                 <div className="flex items-center gap-2" >
                                     <Moon className="h-6 w-6 text-emerald-600" />
-                                    <span className="text-xl font-bold text-emerald-400" > Tajweed Mastery </span>
+                                    <span className="text-xl font-bold text-emerald-400" > Al Hidaya Institute </span>
                                 </div>
                                 < button
                                     onClick={() => setIsMenuOpen(false)}

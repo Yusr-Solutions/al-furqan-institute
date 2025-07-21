@@ -40,24 +40,24 @@ export function StudentLeaderboard({
       const mockUsers: User[] = [
         {
           id: "1",
-          first_name: "Alex",
-          last_name: "Johnson",
+          first_name: "Fatima",
+          last_name: "",
           level: 12,
-          completed_classes: ["Algebra", "Biology", "Chemistry"]
+          completed_classes: ["Quran", "Arabic", "Fiqh"]
         },
         {
           id: "2",
-          first_name: "Samira",
-          last_name: "Khan",
+          first_name: "Sarah",
+          last_name: "",
           level: 10,
-          completed_classes: ["Physics", "Geometry", "World History"]
+          completed_classes: ["Fiqh"]
         },
         {
           id: "3",
-          first_name: "Miguel",
-          last_name: "Rodriguez",
+          first_name: "Ahmad",
+          last_name: "",
           level: 8,
-          completed_classes: ["Literature", "Spanish", "Art History"]
+          completed_classes: ["Arabic", "Fiqh"]
         }
       ];
 
@@ -65,37 +65,37 @@ export function StudentLeaderboard({
     }
   }, [open]);
 
-  // Mock testimonials data mapped by user ID
+  // Updated testimonials matching Islamic subjects
   const mockTestimonials: Record<string, Testimonial[]> = {
     "1": [
       {
-        class: "Algebra",
+        class: "Quran",
         stars: 5,
-        description: "The instructor made complex concepts easy to understand. Highly recommend!"
+        description: "The teacher's recitation was beautiful and explanations were clear. My tajweed improved significantly!"
       },
       {
-        class: "Biology",
+        class: "Arabic",
         stars: 4,
-        description: "Loved the interactive labs. Would take another class with this teacher."
+        description: "Great foundation for understanding Quranic Arabic. Grammar lessons were especially helpful."
       }
     ],
     "2": [
       {
-        class: "Physics",
+        class: "Fiqh",
         stars: 5,
-        description: "Challenging but rewarding. The problem sets really helped me learn."
-      },
-      {
-        class: "World History",
-        stars: 4,
-        description: "Fascinating perspectives. The lectures were always engaging."
+        description: "Clear explanations of worship rulings. Practical examples made complex topics easy to grasp."
       }
     ],
     "3": [
       {
-        class: "Literature",
+        class: "Fiqh",
         stars: 5,
-        description: "Changed how I view classic texts. Discussions were thought-provoking."
+        description: "Comprehensive coverage of daily practices. The instructor's knowledge of madhabs was impressive."
+      },
+      {
+        class: "Arabic",
+        stars: 4,
+        description: "Excellent course for conversational Arabic. I can now hold basic discussions confidently."
       }
     ]
   };

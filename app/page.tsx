@@ -19,6 +19,7 @@ import {
   Flag, Gauge, CheckCircle, Trophy, BarChart
 } from 'lucide-react';
 import ProfilePicturePlaceholder from "@/lib/profile-picture-placeholder.jpg";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -126,41 +127,48 @@ export default function PrimaryLanding() {
             >
               Learn from certified instructors with traditional Ijazah
             </motion.p>
-            <Button
-              className="h-14 text-lg relative overflow-hidden group px-8 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
-              style={{
-                background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
-              }}
-            >
-              {/* Shine effect */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div
-                  className="absolute -inset-[10rem] animate-shine opacity-0 group-hover:opacity-30 transition-opacity duration-300"
-                  style={{
-                    background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)'
-                  }}
-                />
-              </div>
-
-              {/* Button content */}
-              <motion.span
-                className="flex items-center font-bold tracking-wide text-gray-200"
-                initial={{ letterSpacing: '0.025em' }}
-                whileHover={{ letterSpacing: '0.05em' }}
-                onClick={() => {
-                  router.push('/login');
+            <Link
+              href='#program'
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.querySelector('#program');
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}>
+              <Button
+                className="h-14 text-lg relative overflow-hidden group px-8 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                style={{
+                  background: 'linear-gradient(135deg, #059669 0%, #047857 100%)',
                 }}
               >
-                Start Learning
+                {/* Shine effect */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div
+                    className="absolute -inset-[10rem] animate-shine opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+                    style={{
+                      background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)'
+                    }}
+                  />
+                </div>
+
+                {/* Button content */}
                 <motion.span
-                  className="ml-3"
-                  initial={{ x: 0 }}
-                  whileHover={{ x: 5 }}
+                  className="flex items-center font-bold tracking-wide text-gray-200"
+                  initial={{ letterSpacing: '0.025em' }}
+                  whileHover={{ letterSpacing: '0.05em' }}
                 >
-                  <ArrowRight className="h-5 w-5" />
+                  Start Learning
+                  <motion.span
+                    className="ml-3"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 5 }}
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </motion.span>
                 </motion.span>
-              </motion.span>
-            </Button>
+              </Button>
+            </Link>
           </div>
           <div className="lg:w-1/2 flex justify-center">
             <div className="relative">
@@ -497,7 +505,7 @@ export default function PrimaryLanding() {
           </div>
         </div>
       </motion.section>
-      
+
       <motion.section
         id="pricing"
         className="py-16 bg-white dark:bg-slate-900"
