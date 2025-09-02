@@ -24,7 +24,7 @@ export default function LandingNavbar() {
     }, [pathname]);
 
     const navItems = [
-        { name: 'Academy Journal', href: '/al-furqan-academy-journal' },
+        { name: 'Academy Journal (Our Blog)', href: '/al-furqan-academy-journal' },
         { name: 'What We Offer', href: '/#program' },
         { name: 'Testimonials', href: '/#testimonials' },
     ];
@@ -77,13 +77,13 @@ export default function LandingNavbar() {
                                     }
                                 }}
                                 className={`relative group font-medium transition-all transform ${
-                                    item.name === 'Academy Journal'
+                                    item.name === 'Academy Journal (Our Blog)'
                                         ? 'bg-violet-600 text-white px-4 py-2 rounded-lg hover:bg-violet-700 hover:scale-[1.01]'
                                         : 'text-indigo-700 hover:text-indigo-900'
                                 }`}
                             >
                                 {item.name}
-                                {item.name !== 'Academy Journal' && (
+                                {item.name !== 'Academy Journal (Our Blog)' && (
                                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-violet-500 transition-all group-hover:w-full"></span>
                                 )}
                             </Link>
@@ -111,10 +111,6 @@ export default function LandingNavbar() {
                 >
                     <div className="px-4 pt-2 pb-5 space-y-3">
                         <div className="flex items-center justify-between py-3">
-                            <div className="flex items-center gap-3">
-                                <School className="h-7 w-7 text-indigo-600" />
-                                <span className="text-xl font-bold text-indigo-900">Al Furqan Institute</span>
-                            </div>
                             <button
                                 onClick={() => setIsMenuOpen(false)}
                                 className="p-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100"
@@ -135,7 +131,7 @@ export default function LandingNavbar() {
                                         }
                                     }}
                                     className={`block px-4 py-3 rounded-lg transition-colors ${
-                                        item.name === 'Academy Journal'
+                                        item.name === 'Academy Journal (Our Blog)'
                                             ? 'bg-violet-600 text-white hover:bg-violet-700'
                                             : 'text-indigo-900 hover:bg-indigo-50'
                                     }`}

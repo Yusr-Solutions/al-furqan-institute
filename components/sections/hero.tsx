@@ -146,7 +146,7 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    <div className="lg:w-1/2 md:w-[80%] flex justify-center relative">
+                    <div className="w-[90%] md:w-[90%] lg:w-1/2 flex justify-center relative">
                         <motion.div
                             className="relative z-20 w-full max-w-md"
                             initial={{ scale: 0.8, opacity: 0 }}
