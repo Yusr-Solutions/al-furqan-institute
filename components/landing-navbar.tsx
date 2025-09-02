@@ -4,15 +4,16 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, School, X, Menu } from 'lucide-react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function LandingNavbar() {
     const pathname = usePathname();
+    const router = useRouter(); // Use useRouter to navigate
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
-        // This effect runs whenever the URL's hash changes (e.g., from / to /#program)
-        // and handles the smooth scroll. This is the most reliable method.
+        // This effect runs whenever the URL's hash changes
+        // and handles the smooth scroll.
         if (typeof window !== 'undefined' && window.location.hash) {
             const hash = window.location.hash;
             const target = document.querySelector(hash);
@@ -27,6 +28,22 @@ export default function LandingNavbar() {
         { name: 'What We Offer', href: '/#program' },
         { name: 'Testimonials', href: '/#testimonials' },
     ];
+
+    const handleScrollOrRedirect = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+        const hash = href.split('#')[1];
+        if (pathname === '/') {
+            // We are on the homepage, so just scroll
+            e.preventDefault(); // Prevent default link behavior
+            const target = document.getElementById(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // We are not on the homepage, redirect first
+            router.push(`/${href}`);
+        }
+        setIsMenuOpen(false); // Close mobile menu after click
+    };
 
     return (
         <motion.nav
@@ -52,7 +69,13 @@ export default function LandingNavbar() {
                             <Link
                                 key={item.name}
                                 href={item.href}
-                                onClick={() => setIsMenuOpen(false)}
+                                onClick={(e) => {
+                                    if (item.href.startsWith('/#')) {
+                                        handleScrollOrRedirect(e, item.href);
+                                    } else {
+                                        setIsMenuOpen(false);
+                                    }
+                                }}
                                 className={`relative group font-medium transition-all transform ${
                                     item.name === 'Academy Journal'
                                         ? 'bg-violet-600 text-white px-4 py-2 rounded-lg hover:bg-violet-700 hover:scale-[1.01]'
@@ -104,7 +127,13 @@ export default function LandingNavbar() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    onClick={() => setIsMenuOpen(false)}
+                                    onClick={(e) => {
+                                        if (item.href.startsWith('/#')) {
+                                            handleScrollOrRedirect(e, item.href);
+                                        } else {
+                                            setIsMenuOpen(false);
+                                        }
+                                    }}
                                     className={`block px-4 py-3 rounded-lg transition-colors ${
                                         item.name === 'Academy Journal'
                                             ? 'bg-violet-600 text-white hover:bg-violet-700'
